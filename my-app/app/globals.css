@@ -9,3 +9,8 @@
   --color-crimson: #8E2A27;
   --color-caption: #5C5A55;
 }
+*{
+  box-sizing: border-box;
+  scrollbar-width: none;
+  scrollbar-color: transparent transparent;
+}
