@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-display: var(--font-playfair), serif;
+  --font-body: var(--font-lora), serif;
+
+  --color-paper: #F4EFE6;
+  --color-ink: #1A1A1A;
+  --color-crimson: #8E2A27;
+  --color-caption: #5C5A55;
+}
