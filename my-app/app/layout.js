@@ -1,41 +1,69 @@
-import { Geist, Geist_Mono, Playfair_Display, Lora  } from "next/font/google";
+import { Playfair_Display, Inter, JetBrains_Mono } from "next/font/google";
+import SmoothScroll from "./components/SmoothScroll";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const display = Playfair_Display({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["700", "800", "900"],
-  variable: "--font-playfair",
-});
-
-const lora = Lora({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["700", "900"],
   style: ["normal", "italic"],
-  variable: "--font-lora",
+  variable: "--font-playfair",
+  display: "swap",
+});
+const body = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains",
+  display: "swap",
 });
 
 export const metadata = {
-  title: "The Rakesh Daniel Times | Freelance Full Stack Developer",
-  description: "My personal portfolio website i am a web developer and freelancer |  Freelance full stack developer in Chennai, building web apps, e-commerce, booking systems and Telegram bots.",
+  title: "Rakesh Daniel | Full Stack Developer, Chennai",
+  description:
+    "Freelance full stack developer building web apps, e-commerce, booking and login systems.",
 };
+
+export const viewport = { themeColor: "#0f0b08" };
 
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={` ${playfair.variable} ${lora.variable}`}
+      className={`${display.variable} ${body.variable} ${mono.variable}`}
     >
-      <body className="bg-paper text-ink font-body antialiased">{children}</body>
+      <body>
+        {/* SVG filter that makes paper edges look burnt */}
+        <svg
+          width="0"
+          height="0"
+          aria-hidden="true"
+          style={{ position: "absolute" }}
+        >
+          <defs>
+            <filter id="burn" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence
+                type="fractalNoise"
+                baseFrequency="0.035"
+                numOctaves="3"
+                seed="4"
+                result="n"
+              />
+              <feDisplacementMap
+                in="SourceGraphic"
+                in2="n"
+                scale="16"
+                xChannelSelector="R"
+                yChannelSelector="G"
+              />
+            </filter>
+          </defs>
+        </svg>
+        <SmoothScroll />
+        {children}
+      </body>
     </html>
   );
 }

@@ -1,16 +1,346 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-display: var(--font-playfair), serif;
-  --font-body: var(--font-lora), serif;
-
-  --color-paper: #F4EFE6;
-  --color-ink: #1A1A1A;
-  --color-crimson: #8E2A27;
-  --color-caption: #5C5A55;
+  --color-soot: #0f0b08;
+  --color-ink: #1a1410;
+  --color-paper: #efe4cc;
+  --color-crimson: #d02f2f;
+  --color-ember: #ff6a00;
+  --color-caption: #6b5a43;
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 }
-*{
-  box-sizing: border-box;
-  scrollbar-width: none;
-  scrollbar-color: transparent transparent;
+
+html {
+  background: var(--color-soot);
+}
+body {
+  color: var(--color-paper);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip; /* clip (not hidden) so sticky cards keep working */
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 40% at 50% 105%, rgba(255, 90, 0, 0.22), transparent 70%),
+    radial-gradient(40% 30% at 85% -5%, rgba(208, 47, 47, 0.15), transparent 70%);
+}
+::selection {
+  background: var(--color-ember);
+  color: #000;
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.lenis) {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ---------- Burning newspaper box ---------- */
+.burn {
+  position: relative;
+  isolation: isolate;
+  color: var(--color-ink);
+  transition: filter 0.3s;
+}
+.burn::before,
+.burn::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  filter: url(#burn);
+}
+/* charred ember rim peeking out around the paper */
+.burn::before {
+  inset: -7px;
+  background: radial-gradient(circle at 50% 100%, #ffb000, #ff5a00 45%, #4a1604 100%);
+  animation: rim 2.4s ease-in-out infinite alternate;
+}
+.burn::after {
+  inset: 0;
+  background: linear-gradient(160deg, #f3e9d2, #e4d4b0);
+}
+.burn:hover {
+  filter: drop-shadow(0 0 16px rgba(255, 106, 0, 0.5));
+}
+@keyframes rim {
+  from { opacity: 0.7; }
+  to { opacity: 1; }
+}
+
+/* ---------- Flames + embers ---------- */
+.flames {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -26px;
+  height: 80px;
+  display: flex;
+  pointer-events: none;
+  z-index: 2;
+}
+.flames-sm {
+  height: 56px;
+  bottom: -18px;
+}
+.flame {
+  flex: 1;
+  margin: 0 -7px;
+  transform-origin: 50% 100%;
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    #fff3b0 0%,
+    #ffb100 28%,
+    #ff4d00 58%,
+    transparent 74%
+  );
+  border-radius: 50% 50% 40% 40% / 70% 70% 30% 30%;
+  filter: blur(3px);
+  align-self: flex-end;
+  animation: flick var(--d, 1s) ease-in-out infinite alternate;
+  animation-delay: var(--delay, 0s);
+}
+@keyframes flick {
+  0% { transform: scaleY(0.55) scaleX(0.9) skewX(-4deg); }
+  50% { transform: scaleY(1.05) scaleX(1) skewX(3deg); }
+  100% { transform: scaleY(0.75) scaleX(0.95) skewX(-2deg); }
+}
+.embers {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 240px;
+  pointer-events: none;
+  z-index: 3;
+}
+.ember {
+  position: absolute;
+  bottom: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #ffb347;
+  box-shadow: 0 0 8px 2px #ff6a00;
+  opacity: 0;
+  animation: rise var(--dur, 4s) linear infinite;
+  animation-delay: var(--delay, 0s);
+}
+@keyframes rise {
+  0% { transform: translate(0, 0) scale(1); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translate(var(--x, 0px), -220px) scale(0.2); opacity: 0; }
+}
+
+/* ---------- Fire text, buttons ---------- */
+.fire-text {
+  background: linear-gradient(180deg, #fff2b0, #ffb000 35%, #ff4d00 70%, #b3130f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  animation: glow 2.5s ease-in-out infinite alternate;
+}
+@keyframes glow {
+  from { filter: drop-shadow(0 0 6px rgba(255, 90, 0, 0.35)); }
+  to { filter: drop-shadow(0 0 16px rgba(255, 140, 0, 0.7)); }
+}
+
+.btn-fire,
+.btn-dark,
+.btn-ghost {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.95rem 1.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+.btn-fire {
+  color: #fff;
+  background: linear-gradient(120deg, #8f1d12, #d02f2f 40%, #ff6a00 100%);
+  background-size: 200% 100%;
+  box-shadow: 4px 4px 0 0 rgba(239, 228, 204, 0.18);
+}
+.btn-fire:hover,
+.btn-fire:active {
+  background-position: 100% 0;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 rgba(0, 0, 0, 0.5), 0 0 28px 6px rgba(255, 106, 0, 0.55);
+}
+.btn-fire::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: -16px;
+  height: 24px;
+  background: radial-gradient(ellipse at 50% 100%, #ffd34d, #ff6a00 55%, transparent 72%);
+  filter: blur(4px);
+  opacity: 0;
+  transform-origin: 50% 100%;
+  pointer-events: none;
+}
+.btn-fire:hover::after,
+.btn-fire:active::after {
+  opacity: 1;
+  animation: flick 0.45s ease-in-out infinite alternate;
+}
+.btn-dark {
+  color: var(--color-paper);
+  background: var(--color-ink);
+  border: 1px solid var(--color-ink);
+}
+.btn-dark:hover,
+.btn-dark:active {
+  background: transparent;
+  color: var(--color-ink);
+  transform: translate(-2px, -2px);
+  box-shadow: inset 0 -3px 0 var(--color-ember), 0 0 18px rgba(255, 106, 0, 0.45);
+}
+.btn-ghost {
+  color: var(--color-paper);
+  border: 1px solid rgba(239, 228, 204, 0.5);
+}
+.btn-ghost:hover,
+.btn-ghost:active {
+  color: var(--color-ember);
+  border-color: var(--color-ember);
+  box-shadow: 0 0 22px rgba(255, 106, 0, 0.4);
+  transform: translate(-2px, -2px);
+}
+
+/* ---------- Nav ---------- */
+.nav-link {
+  position: relative;
+  padding-bottom: 0.3rem;
+  transition: color 0.2s;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-crimson), var(--color-ember), #ffd34d);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+.nav-link:hover,
+.nav-link.is-active {
+  color: var(--color-ember);
+}
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  transform: scaleX(1);
+}
+
+/* ---------- Ticker ---------- */
+.ticker {
+  display: flex;
+  width: max-content;
+  animation: tick 28s linear infinite;
+}
+.ticker-rev {
+  animation-direction: reverse;
+  animation-duration: 40s;
+}
+.ticker:hover {
+  animation-play-state: paused;
+}
+@keyframes tick {
+  to { transform: translateX(-50%); }
+}
+
+/* ---------- Skill cards ---------- */
+.skill-card {
+  border: 1px solid rgba(239, 228, 204, 0.2);
+  background: rgba(239, 228, 204, 0.04);
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+.skill-card:hover,
+.skill-card:active {
+  transform: translateY(-4px);
+  border-color: var(--color-ember);
+  box-shadow: 0 0 32px -6px rgba(255, 106, 0, 0.6);
+}
+
+/* ---------- Stacked project cards ---------- */
+.stack {
+  --stack-top: 1rem;
+}
+@media (min-width: 768px) {
+  .stack {
+    --stack-top: 5.5rem;
+  }
+}
+.stack-card,
+.stack-card:hover {
+  transform-origin: 50% 0;
+  transform: scale(calc(1 - var(--p, 0) * 0.06));
+  filter: brightness(calc(1 - var(--p, 0) * 0.45));
+}
+.clipping {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 9px, rgba(26, 20, 16, 0.12) 9px 10px),
+    linear-gradient(135deg, #e9dcbd, #d8c79f);
+}
+
+/* ---------- Page-turn reveal (same as before) ---------- */
+.reveal-armed {
+  opacity: 0;
+  transform: perspective(900px) translateX(36px) rotateY(-8deg);
+  transform-origin: left center;
+  clip-path: inset(-24px 100% -24px -24px);
+  transition:
+    clip-path 0.55s cubic-bezier(0.22, 0.8, 0.25, 1),
+    transform 0.55s cubic-bezier(0.22, 0.8, 0.25, 1),
+    opacity 0.25s ease-out;
+  will-change: clip-path, transform, opacity;
+}
+.reveal-armed.is-visible {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(-24px -24px -24px -24px);
+}
+.reveal-armed.is-done {
+  clip-path: none;
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flame,
+  .ember,
+  .ticker,
+  .fire-text,
+  .burn::before {
+    animation: none !important;
+  }
 }
