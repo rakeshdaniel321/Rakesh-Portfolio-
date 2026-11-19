@@ -344,3 +344,7 @@ html.lenis body {
     animation: none !important;
   }
 }
+@media (max-width: 767px) {
+  .flame:nth-child(n + 10) { display: none; }
+  .ember:nth-child(n + 8) { display: none; }
+}
