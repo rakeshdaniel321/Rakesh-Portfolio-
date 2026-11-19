@@ -1,5 +1,5 @@
-export const EMAIL = "yourmail@example.com";
-export const GITHUB = "https://github.com/your-username";
+export const EMAIL = "rakeshdaniel072@gmail.com";
+export const GITHUB = "https://github.com/rakeshdaniel321";
 
 export const services = [
   "Web Apps",
@@ -44,31 +44,31 @@ export const details = [
 // image: put screenshots in /public/projects/ and use "/projects/shop.png"
 export const projects = [
   {
-    title: "Pradeep Mobile",
-    tag: "E-commerce",
-    desc: "Real-time mobile shop with product catalogue, cart, login and live order tracking, built as a small-business demo store.",
-    stack: ["React", "Firebase", "Razorpay", "Vercel"],
-    live: "https://your-shop.vercel.app",
-    repo: "https://github.com/your-username/pradeep-mobile",
-    image: null,
+    title: "College Website Clone",
+    tag: "Web Clone",
+    desc: "How I Cloned My College Website (Sri Sankara Bhagavathi Arts & Science College) from Scratch!",
+    stack: ["html", "css", "js", "Vercel"],
+    live: "https://college-website-clone-blue.vercel.app/",
+    repo: "https://gitlab.com/payilagam-group8990334/college_website_clone.git",
+    image: "/Images/projects/college-clone.png",
   },
   {
-    title: "The Rakesh Daniel Times",
-    tag: "Portfolio",
-    desc: "This newspaper-themed portfolio: Next.js App Router, Tailwind, smooth scroll and CSS-only fire effects.",
-    stack: ["Next.js", "Tailwind CSS", "Lenis"],
-    live: "https://your-portfolio.vercel.app",
-    repo: "https://github.com/your-username/rakesh-portfolio",
-    image: null,
+    title: "Flipkart clone",
+    tag: "Web Clone",
+    desc: "How I Built a Full Flipkart Page Clone From Scratch Using My Own Code",
+    stack: ["html", "CSS", "js"],
+    live: "https://flipkart-rakesh.vercel.app/",
+    repo: "https://gitlab.com/payilagam-group8990334/flipkart.git",
+    image: "/Images/projects/flipkart-clone.png",
   },
   {
     // REPLACE THIS with your real third project
-    title: "Secure Login System",
-    tag: "Security",
-    desc: "Authentication flow with protected routes, hashed passwords and session handling.",
-    stack: ["Node.js", "Express", "MongoDB"],
-    live: "https://your-login-demo.vercel.app",
-    repo: "https://github.com/your-username/login-system",
-    image: null,
+    title: "React E-Commerce Web Application",
+    tag: "E-Commerce ",
+    desc: "A uilt a responsive e-commerce app using React.js, React Router DOM, Redux Toolkit,  Hooks, and Props. Implemented product listing, product details, add-to-cart, cart management, and total price calculation with global state management.",
+    stack: ["html", "css", "Reactjs","vercel"],
+    live: "https://react-basic-ecommerce-olive.vercel.app/",
+    repo: "https://github.com/rakeshdaniel321/React_basic_ecommerce.git",
+    image: "/Images/projects/ecommerce.png" ,
   },
 ];

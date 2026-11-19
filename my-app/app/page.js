@@ -39,17 +39,17 @@ export default function Home() {
         {/* Burning masthead */}
         <header className="burn px-4 pb-14 pt-6 sm:px-10 md:pb-16">
           <p className="text-center font-mono text-[10px] uppercase tracking-[0.3em] text-caption sm:text-xs">
-            Late Edition · Hot Off The Press
+            Freelance Edition · Open For New Projects
           </p>
           <h1 className="mt-3 text-center font-display text-[2.15rem] font-black uppercase leading-none tracking-tighter text-ink sm:text-6xl lg:text-8xl">
-            The Rakesh Daniel Times
+           The Rakesh Daniel ERA
           </h1>
           <div className="mt-5 border-t-2 border-ink" />
           <div className="mt-[3px] border-t border-ink" />
           <div className="flex flex-col gap-1 border-b border-ink py-2.5 text-center font-mono text-[10px] font-semibold uppercase tracking-widest sm:flex-row sm:justify-between sm:text-xs">
             <LiveDate />
-            <span>Chennai, India</span>
-            <span>Freelance Edition</span>
+            <span>Chennai, TamilNadu</span>
+            <span>Available For Freelance</span>
           </div>
           <Flames />
           <Embers />
@@ -58,23 +58,23 @@ export default function Home() {
         <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-[1.4fr_1fr] md:gap-12 lg:grid-cols-[1.5fr_1fr_1fr]">
           {/* headline */}
           <div>
-            <p className={eyebrow}>The Front-Page Story</p>
+            <p className={eyebrow}>Special Edition · Open for Projects</p>
             <h2 className="mt-4 font-display text-[2.6rem] font-black uppercase leading-[1.02] tracking-tighter text-paper sm:text-6xl lg:text-7xl">
               Full Stack Developer{" "}
               <span className="fire-text">Available for Hire</span>
             </h2>
             <p className="mt-5 max-w-xl font-display text-lg italic text-paper/75 sm:text-xl">
-              Thoughtful digital work, built from the first sketch to the final
-              line of code.
+              Turning your business ideas into fast, secure, and scalable web
+              applications.
             </p>
             <p className="mt-4 max-w-lg leading-relaxed text-paper/70">
-              Meet Rakesh Daniel, a freelance full stack developer based in
-              Chennai. From considered interfaces to dependable systems behind
-              the scenes, he builds practical web experiences for ambitious
-              ideas and growing businesses.
+              Hi, I&apos;m Rakesh Daniel, a freelance full stack developer based
+              in Chennai. I build custom websites, e-commerce stores, and secure
+              booking systems from scratch—delivering clean design, dependable
+              code, and on-time results for growing businesses.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <a href="#contact" className="btn-fire">
+              <a href="#contact" className="btn-fire">  
                 Hire Me
               </a>
               <a href="#projects" className="btn-ghost">
@@ -311,7 +311,7 @@ export default function Home() {
       </section>
 
       <footer className="border-t border-paper/15 px-4 py-6 text-center font-mono text-[11px] uppercase tracking-widest text-paper/50">
-        © 2026 Rakesh Daniel · Chennai, India
+        © 2026 Rakesh Daniel · Chennai, TamilNadu
       </footer>
     </div>
   );
