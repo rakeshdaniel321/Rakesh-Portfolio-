@@ -21,9 +21,9 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "Rakesh Daniel | Full Stack Developer, Chennai",
+  title: "Rakesh Daniel | Full Stack Developer",
   description:
-    "Freelance full stack developer building web apps, e-commerce, booking and login systems.",
+    "Rakesh Daniel (AKM) — Freelance full stack developer in Chennai, from Tirunelveli (Tisaiyanvilai / Ayankulam), building web apps, e-commerce, booking and login systems.",
 };
 
 export const viewport = { themeColor: "#0f0b08" };
