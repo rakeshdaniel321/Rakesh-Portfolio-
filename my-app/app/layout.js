@@ -21,10 +21,22 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "Rakesh Daniel | Full Stack Developer",
+  title: "Rakesh Daniel (Rakesh AKM) | Full Stack Developer - Ayankulam, Tirunelveli & Chennai",
   description:
-    "Rakesh Daniel (AKM) — Freelance full stack developer in Chennai, from Tirunelveli (Tisaiyanvilai / Ayankulam), building web apps, e-commerce, booking and login systems.",
+    "Rakesh Daniel (AKM / Rakesh AKM) — Freelance Full Stack Developer in Chennai, from AKM Ayankulam, Tirunelveli. Building modern web apps, e-commerce, and booking systems.",
+  keywords: [
+    "Rakesh Daniel",
+    "Rakesh AKM",
+    "AKM",
+    "AKM Ayankulam",
+    "Ayankulam",
+    "Tirunelveli",
+    "Full Stack Developer",
+    "Full Stack Developer Chennai",
+    "Full Stack Developer Tirunelveli",
+  ],
 };
+
 
 export const viewport = { themeColor: "#0f0b08" };
 
