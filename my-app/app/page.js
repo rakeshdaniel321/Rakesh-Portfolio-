@@ -51,7 +51,7 @@ export default function Home() {
             <span>Chennai, TamilNadu</span>
             <span>Available For Freelance</span>
           </div>
-          <Flames />
+          {/* <Flames /> */}
           <Embers />
         </header>
 
@@ -98,7 +98,8 @@ export default function Home() {
                 />
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ember/40 to-transparent mix-blend-multiply" />
               </div>
-              <Flames count={10} className="flames-sm" />
+              {/* <Flames count={120} className="flames-sm" /> */}
+              <Embers/>
             </div>
             <figcaption className="mt-5 font-mono text-[11px] uppercase tracking-widest text-paper/60">
               Fig. 1 — Rakesh Daniel, full stack developer
@@ -207,6 +208,7 @@ export default function Home() {
           <Reveal>
             <p className={eyebrow}>The Toolbox</p>
             <h2 className={sectionTitle}>Skills</h2>
+             <Embers/>
           </Reveal>
         </div>
 
@@ -266,9 +268,10 @@ export default function Home() {
             <h2 className={sectionTitle}>Selected Projects</h2>
           </Reveal>
           <div className="mt-10">
-            <ProjectStack projects={projects} />
+            <ProjectStack projects={projects} />  
           </div>
         </div>
+      
       </section>
 
       {/* ================= CONTACT ================= */}
@@ -305,7 +308,8 @@ export default function Home() {
                 GitHub Profile
               </a>
             </div>
-            <Flames count={14} className="flames-sm" />
+            {/* <Flames count={14} className="flames-sm" /> */}
+            <Embers/>
           </div>
         </Reveal>
       </section>
