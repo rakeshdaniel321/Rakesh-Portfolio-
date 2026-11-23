@@ -21,22 +21,31 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "Rakesh Daniel (Rakesh AKM) | Full Stack Developer - Ayankulam, Tirunelveli & Chennai",
+  metadataBase: new URL("https://rakesh-daniel-portfolio.web.app/"),
+  title: "Rakesh Daniel (Rakesh AKM) | Full Stack Developer",
   description:
-    "Rakesh Daniel (AKM / Rakesh AKM) — Freelance Full Stack Developer in Chennai, from AKM Ayankulam, Tirunelveli. Building modern web apps, e-commerce, and booking systems.",
+    "Rakesh Daniel, also known as Rakesh AKM, is a freelance full stack developer from Ayankulam, Tirunelveli, working in Chennai. React, Next.js and Node.js web apps.",
   keywords: [
     "Rakesh Daniel",
     "Rakesh AKM",
-    "AKM",
-    "AKM Ayankulam",
-    "Ayankulam",
-    "Tirunelveli",
-    "Full Stack Developer",
+    "Rakesh Ayankulam",
+    "Rakesh Tirunelveli",
     "Full Stack Developer Chennai",
     "Full Stack Developer Tirunelveli",
   ],
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Rakesh Daniel (Rakesh AKM) | Full Stack Developer",
+    description:
+      "Freelance full stack developer from Ayankulam, Tirunelveli, based in Chennai.",
+    url: "/",
+    siteName: "Rakesh Daniel",
+    type: "website",
+    locale: "en_IN",
+    images: ["/Images/Profile_Pic/Rakesh_pic.jpeg"],
+  },
+  robots: { index: true, follow: true },
 };
-
 
 export const viewport = { themeColor: "#0f0b08" };
 

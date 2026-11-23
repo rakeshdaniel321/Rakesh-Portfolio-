@@ -42,7 +42,7 @@ export default function Home() {
             Freelance Edition · Open For New Projects
           </p>
           <h1 className="mt-3 text-center font-display text-[2.15rem] font-black uppercase leading-none tracking-tighter text-ink sm:text-6xl lg:text-8xl">
-           The Rakesh Daniel ERA
+            The Rakesh Daniel ERA
           </h1>
           <div className="mt-5 border-t-2 border-ink" />
           <div className="mt-[3px] border-t border-ink" />
@@ -74,7 +74,7 @@ export default function Home() {
               code, and on-time results for growing businesses.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <a href="#contact" className="btn-fire">  
+              <a href="#contact" className="btn-fire">
                 Hire Me
               </a>
               <a href="#projects" className="btn-ghost">
@@ -99,7 +99,7 @@ export default function Home() {
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ember/40 to-transparent mix-blend-multiply" />
               </div>
               {/* <Flames count={120} className="flames-sm" /> */}
-              <Embers/>
+              <Embers />
             </div>
             <figcaption className="mt-5 font-mono text-[11px] uppercase tracking-widest text-paper/60">
               Fig. 1 — Rakesh Daniel, full stack developer
@@ -179,9 +179,13 @@ export default function Home() {
             <p
               className={`max-w-xl text-lg leading-relaxed text-paper/80 ${dropCap}`}
             >
-              I build clean, fast and reliable web applications, from e-commerce
-              stores with payment integration to secure login systems. I care
-              about simple design, clear code and delivering on time.
+              <p>
+                I'm Rakesh Daniel (Rakesh AKM), a freelance full stack developer
+                based in Chennai. I build fast, reliable web applications with
+                React, Next.js and Node.js, from e-commerce stores with payment
+                integration to secure login systems and booking platforms. I
+                care about simple design, clear code and delivering on time.
+              </p>
             </p>
           </Reveal>
           <Reveal delay={120}>
@@ -208,7 +212,6 @@ export default function Home() {
           <Reveal>
             <p className={eyebrow}>The Toolbox</p>
             <h2 className={sectionTitle}>Skills</h2>
-             <Embers/>
           </Reveal>
         </div>
 
@@ -268,10 +271,9 @@ export default function Home() {
             <h2 className={sectionTitle}>Selected Projects</h2>
           </Reveal>
           <div className="mt-10">
-            <ProjectStack projects={projects} />  
+            <ProjectStack projects={projects} />
           </div>
         </div>
-      
       </section>
 
       {/* ================= CONTACT ================= */}
@@ -309,13 +311,50 @@ export default function Home() {
               </a>
             </div>
             {/* <Flames count={14} className="flames-sm" /> */}
-            <Embers/>
+            <Embers />
           </div>
         </Reveal>
       </section>
 
       <footer className="border-t border-paper/15 px-4 py-6 text-center font-mono text-[11px] uppercase tracking-widest text-paper/50">
-        © 2026 Rakesh Daniel · Chennai, TamilNadu
+        <p>
+          © {new Date().getFullYear()} Rakesh Daniel (Rakesh AKM) · Full Stack
+          Developer · Chennai, Tamil Nadu
+        </p>
+
+        <p className="mt-2">Originally from Ayankulam, Tirunelveli.</p>
+
+        <nav
+          aria-label="Social links"
+          className="mt-3 flex items-center justify-center gap-3"
+        >
+          <a
+            href="https://github.com/rakeshdaniel321"
+            rel="me noopener"
+            target="_blank"
+            className="transition-colors hover:text-paper"
+          >
+            GitHub
+          </a>
+          <span aria-hidden="true">·</span>
+          <a
+            href="https://www.linkedin.com/in/rakesh-daniel-8882b0406"
+            rel="me noopener"
+            target="_blank"
+            className="transition-colors hover:text-paper"
+          >
+            LinkedIn
+          </a>
+          <span aria-hidden="true">·</span>
+          <a
+            href="https://www.instagram.com/rakeshakm72"
+            rel="me noopener"
+            target="_blank"
+            className="transition-colors hover:text-paper"
+          >
+            Instagram
+          </a>
+        </nav>
       </footer>
     </div>
   );
