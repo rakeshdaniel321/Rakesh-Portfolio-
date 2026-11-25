@@ -176,7 +176,7 @@ export default function Home() {
         </Reveal>
         <div className="mt-8 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-14">
           <Reveal>
-            <p
+            <div
               className={`max-w-xl text-lg leading-relaxed text-paper/80 ${dropCap}`}
             >
               <p>
@@ -186,7 +186,7 @@ export default function Home() {
                 integration to secure login systems and booking platforms. I
                 care about simple design, clear code and delivering on time.
               </p>
-            </p>
+            </div>
           </Reveal>
           <Reveal delay={120}>
             <dl className="burn divide-y divide-ink/20 px-5 py-2">

@@ -22,14 +22,16 @@ const mono = JetBrains_Mono({
 
 export const metadata = {
   metadataBase: new URL("https://rakesh-daniel-portfolio.web.app/"),
-  title: "Rakesh Daniel (Rakesh AKM) | Full Stack Developer",
+  title: "Rakesh Daniel (Rakesh AKM) | Full Stack Developer from Ayankulam",
   description:
     "Rakesh Daniel, also known as Rakesh AKM, is a freelance full stack developer from Ayankulam, Tirunelveli, working in Chennai. React, Next.js and Node.js web apps.",
   keywords: [
     "Rakesh Daniel",
     "Rakesh AKM",
     "Rakesh Ayankulam",
+    "Rakesh Ayankulam",
     "Rakesh Tirunelveli",
+    "Ayankulam Full Stack Developer",
     "Full Stack Developer Chennai",
     "Full Stack Developer Tirunelveli",
   ],
@@ -45,21 +47,62 @@ export const metadata = {
     images: ["/Images/Profile_Pic/Rakesh_pic.jpeg"],
   },
   robots: { index: true, follow: true },
-  icons: {
-    icon: "/Images/Profile_Pic/Rakesh_pic.jpeg", // Browser tab-la varum
-    apple: "/Images/Profile_Pic/Rakesh_pic.jpeg", // iPhone/iPad home screen-la save panna varum
+    icons: {
+    icon: [
+      { url: "/favicon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/Images/Profile_Pic/Rakesh_pic.jpeg" },
+    ],
+    apple: "/favicon-192.png",
   },
 };
 
 export const viewport = { themeColor: "#0f0b08" };
 
 export default function RootLayout({ children }) {
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "Rakesh Daniel",
+      alternateName: ["Rakesh AKM", "Ayankulam Rakesh"],
+      url: "https://rakesh-daniel-portfolio.web.app/",
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Rakesh Daniel",
+      alternateName: ["Rakesh AKM", "Ayankulam Rakesh", "Rakesh Ayankulam"],
+      url: "https://rakesh-daniel-portfolio.web.app/",
+      image: "https://rakesh-daniel-portfolio.web.app/Images/Profile_Pic/Rakesh_pic.jpeg",
+      jobTitle: "Full Stack Developer",
+      homeLocation: {
+        "@type": "Place",
+        name: "Ayankulam, Tirunelveli, Tamil Nadu",
+      },
+      workLocation: {
+        "@type": "Place",
+        name: "Chennai, Tamil Nadu",
+      },
+      sameAs: [
+        "https://www.instagram.com/rakeshakm72",
+        "https://www.linkedin.com/in/rakesh-daniel-8882b0406",
+        "https://github.com/rakeshdaniel321",
+        
+        // Unga exact Facebook URL podunga
+        // Unga GitHub, LinkedIn, Instagram URLs inga add pannunga
+      ],
+    },
+  ];
   return (
     <html
       lang="en"
       className={`${display.variable} ${body.variable} ${mono.variable}`}
     >
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {/* SVG filter that makes paper edges look burnt */}
         <svg
           width="0"
