@@ -180,7 +180,7 @@ export default function Home() {
               className={`max-w-xl text-lg leading-relaxed text-paper/80 ${dropCap}`}
             >
               <p>
-                I'm Rakesh Daniel (Rakesh AKM), a freelance full stack developer
+                I am Rakesh Daniel (Rakesh AKM), a freelance full stack developer
                 based in Chennai. I build fast, reliable web applications with
                 React, Next.js and Node.js, from e-commerce stores with payment
                 integration to secure login systems and booking platforms. I

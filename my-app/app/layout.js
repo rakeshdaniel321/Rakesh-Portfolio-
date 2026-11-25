@@ -45,6 +45,10 @@ export const metadata = {
     images: ["/Images/Profile_Pic/Rakesh_pic.jpeg"],
   },
   robots: { index: true, follow: true },
+  icons: {
+    icon: "/Images/Profile_Pic/Rakesh_pic.jpeg", // Browser tab-la varum
+    apple: "/Images/Profile_Pic/Rakesh_pic.jpeg", // iPhone/iPad home screen-la save panna varum
+  },
 };
 
 export const viewport = { themeColor: "#0f0b08" };
